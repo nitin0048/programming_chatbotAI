@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Programming Chatbot</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Top bar aligned neatly -->
+
+  <div class="main-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+  <div class="user-info">
+    <p class="welcome-text">👋 Welcome,</p>
+    <h3 class="username">{{ username }}</h3>
+  </div>
+
+  <h3 class="sidebar-title"><i class="fa-solid fa-comments"></i> Chat History</h3>
+  <ul id="chat-history-list" class="history-list"></ul>
+
+  <button id="new-chat" class="btn-new">+ New Chat</button>
+  <button id="clear-chat" class="side-btn danger-btn">🗑️ Clear All Chats</button>
+  <button onclick="window.location.href='/logout'" class="side-btn danger-btn">🚪 Logout</button>
+</aside>
+
+
+    <!-- Chat area -->
+    <section class="chat-area">
+      
+      <div class="ai-title">The Custom Knowledge AI</div>
+      <h1 class="main-title">💻 Programming Chatbot</h1>
+      
+
+      <!-- Chat Box -->
+      <div id="chat-box" class="chat-box"></div>
+
+      <!-- Input Area -->
+      <div class="input-area">
+        <button id="mic-btn" class="icon-btn" title="Speak your question">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+
+        <input id="question" type="text" placeholder="Type your question here..." autocomplete="off">
+
+        <button id="speak-toggle" class="icon-btn" title="Repeat last answer">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+
+        <button id="send-btn" class="icon-btn send" title="Send">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
